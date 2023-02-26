@@ -1,0 +1,7 @@
+.userStat {
+  grid-column: 1 / span 2;
+
+  @media (min-width: 1024px) {
+    grid-column: 2 / span 1;
+  }
+}
