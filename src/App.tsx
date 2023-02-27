@@ -8,10 +8,12 @@ import { LocalUser } from "./types/user";
 function App() {
   const user: LocalUser = UserExample;
 
+  const handleSearch = (text: string) => {};
+
   return (
     <Container>
       <Header />
-      <Search />
+      <Search search={handleSearch} hasError={false} />
       <UserCard {...user} />
     </Container>
   );

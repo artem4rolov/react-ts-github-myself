@@ -1,8 +1,32 @@
 .userTitle {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+
+  span {
+    color: var(--main-color);
+    font-size: 20px;
+  }
+
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, auto);
     align-items: center;
     gap: 20px;
+  }
+}
+
+body[data-theme="dark"] {
+  .userTitle {
+    p {
+      color: var(--gray-50);
+    }
+
+    span {
+      color: var(--main-color);
+      font-size: 20px;
+    }
   }
 }

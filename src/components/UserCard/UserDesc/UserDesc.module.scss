@@ -1,7 +1,14 @@
 .userDesc {
   grid-column: 1 / span 2;
+  transition: all 0.3s;
 
   @media (min-width: 1024px) {
     grid-column: 2 / span 1;
+  }
+}
+
+body[data-theme="dark"] {
+  span {
+    color: var(--gray-50);
   }
 }

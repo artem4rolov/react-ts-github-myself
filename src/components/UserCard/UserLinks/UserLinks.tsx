@@ -40,11 +40,11 @@ export const UserLinks = ({
   ];
 
   return (
-    <div className={styles.UserLinks}>
+    <div className={styles.userLinks}>
       {data.map((item, index) => (
         <div>
           <label htmlFor="">{item.icon}</label>
-          <span>{item.text}</span>
+          <span>{item.text ? item.text : "nope"}</span>
         </div>
       ))}
     </div>

@@ -7,7 +7,7 @@ interface UserTitleProps
 export const UserTitle = ({ name, created, login }: UserTitleProps) => (
   <div className={styles.userTitle}>
     <h2>{name}</h2>
-    <p>Joined {created}</p>
+    <p>Joined {new Date(created).toLocaleDateString()}</p>
     <span>{login}</span>
   </div>
 );

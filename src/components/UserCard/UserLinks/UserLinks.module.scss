@@ -1,5 +1,18 @@
 .userLinks {
-  // grid-column: 2 / span 2;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+
+  transition: all 0.3s;
+
+  svg {
+    fill: var(--gray-100);
+  }
+
+  span {
+    margin-left: 5px;
+  }
 
   @media (min-width: 1024px) {
     grid-column: 2 / span 1;

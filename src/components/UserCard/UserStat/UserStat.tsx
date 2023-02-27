@@ -6,8 +6,17 @@ interface UserStatProps
 
 export const UserStat = ({ repos, following, followers }: UserStatProps) => (
   <div className={styles.userStat}>
-    <span>{repos}</span>
-    <span>{following}</span>
-    <span>{followers}</span>
+    <div className={styles.block}>
+      <span className={styles.label}>Repos</span>
+      <h2 className={styles.number}>{repos}</h2>
+    </div>
+    <div className={styles.block}>
+      <span className={styles.label}>Following</span>
+      <h2 className={styles.number}>{following}</h2>
+    </div>
+    <div className={styles.block}>
+      <span className={styles.label}>Followers</span>
+      <h2 className={styles.number}>{followers}</h2>
+    </div>
   </div>
 );

@@ -4,11 +4,12 @@
   background-color: var(--white);
   border-radius: 15px;
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: 15px;
+  transition: all 0.3s;
 
   .avatar {
-    width: 150px;
+    width: 120px;
     border-radius: 100px;
   }
 
@@ -17,5 +18,16 @@
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 30px;
+
+    .avatar {
+      width: 150px;
+      border-radius: 100px;
+    }
+  }
+}
+
+body[data-theme="dark"] {
+  .userCard {
+    background-color: var(--gray-400);
   }
 }
