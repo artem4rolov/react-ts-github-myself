@@ -5,11 +5,20 @@ import { ReactComponent as LocationIcon } from "../../../assets/icon-location.sv
 import { ReactComponent as BlogIcon } from "../../../assets/icon-website.svg";
 import { ReactComponent as TwitterIcon } from "../../../assets/icon-twitter.svg";
 import { ReactComponent as CompanyIcon } from "../../../assets/icon-company.svg";
+import LinkItem from "./LinkItem";
 
 interface DataIerarchy {
   icon: React.ReactNode;
   text: string | null;
+  isLink?: boolean;
 }
+
+const isLinkTwitter = (text: string | null): string => {
+  let currentHref =
+    text && text.startsWith("http") ? text : `https://twitter.com/${text}`;
+
+  return currentHref;
+};
 
 interface UserLinksProps
   extends Pick<LocalUser, "location" | "company" | "blog" | "twitter"> {}
@@ -28,10 +37,12 @@ export const UserLinks = ({
     {
       icon: <BlogIcon />,
       text: blog,
+      isLink: true,
     },
     {
       icon: <TwitterIcon />,
-      text: twitter,
+      text: isLinkTwitter(twitter) && twitter,
+      isLink: true,
     },
     {
       icon: <CompanyIcon />,
@@ -42,10 +53,7 @@ export const UserLinks = ({
   return (
     <div className={styles.userLinks}>
       {data.map((item, index) => (
-        <div>
-          <label htmlFor="">{item.icon}</label>
-          <span>{item.text ? item.text : "nope"}</span>
-        </div>
+        <LinkItem key={index} icon={item.icon} text={item.text} />
       ))}
     </div>
   );
