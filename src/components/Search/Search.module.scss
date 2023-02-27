@@ -41,6 +41,11 @@
   svg {
     width: 40px;
   }
+
+  .error {
+    width: 20%;
+    color: rgb(176, 0, 0);
+  }
 }
 
 body[data-theme="dark"] {
