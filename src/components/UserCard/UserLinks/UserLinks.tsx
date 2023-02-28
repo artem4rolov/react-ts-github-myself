@@ -11,10 +11,18 @@ interface DataIerarchy {
   icon: React.ReactNode;
   text: string | null;
   isLink?: boolean;
+  isTwitter?: boolean;
 }
 
 const isLinkTwitter = (text: string | null): string => {
-  let currentHref =
+  let currentHref: string;
+
+  // если ссылки нет - возвращаем текст
+  if (text === null) {
+    return (currentHref = "Not Available");
+  }
+
+  currentHref =
     text && text.startsWith("http") ? text : `https://twitter.com/${text}`;
 
   return currentHref;
@@ -41,8 +49,9 @@ export const UserLinks = ({
     },
     {
       icon: <TwitterIcon />,
-      text: isLinkTwitter(twitter) && twitter,
+      text: isLinkTwitter(twitter),
       isLink: true,
+      isTwitter: true,
     },
     {
       icon: <CompanyIcon />,
@@ -53,7 +62,13 @@ export const UserLinks = ({
   return (
     <div className={styles.userLinks}>
       {data.map((item, index) => (
-        <LinkItem key={index} icon={item.icon} text={item.text} />
+        <LinkItem
+          key={index}
+          icon={item.icon}
+          text={item.text}
+          isLink={item.isLink}
+          isTwitter={item.isTwitter}
+        />
       ))}
     </div>
   );

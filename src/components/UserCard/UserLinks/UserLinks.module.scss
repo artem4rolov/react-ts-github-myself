@@ -2,19 +2,45 @@
   grid-column: 1 / span 2;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  gap: 10px;
+  gap: 15px;
+  color: var(--gray-100);
 
   transition: all 0.3s;
 
   svg {
     fill: var(--gray-100);
+    margin-right: 10px;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--gray-100);
   }
 
   span {
     margin-left: 5px;
+    color: var(--white);
   }
 
   @media (min-width: 1024px) {
     grid-column: 2 / span 1;
+  }
+
+  @media (max-width: 468px) {
+    grid-template-columns: repeat(1, auto);
+    gap: 20px;
+  }
+}
+
+body[data-theme="dark"] {
+  .userLinks {
+    color: var(--white);
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--white);
+    }
   }
 }

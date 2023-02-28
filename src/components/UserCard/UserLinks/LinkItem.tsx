@@ -4,10 +4,13 @@ interface LinkItemProps {
   text: string | null;
   icon: React.ReactNode;
   isLink?: boolean | undefined;
+  isTwitter?: boolean | undefined;
 }
 
-const LinkItem = ({ text, icon, isLink }: LinkItemProps) => {
-  const currentText = text || "Not Available";
+const LinkItem = ({ text, icon, isLink, isTwitter }: LinkItemProps) => {
+  // берем либо ссылку, либо дефолтный текст в случае отсутсвия ссылки
+  let currentText = text || "Not Available";
+  // по дефолту ссылка пустая
   let currentHref: string = "";
 
   if (isLink) {
@@ -20,15 +23,11 @@ const LinkItem = ({ text, icon, isLink }: LinkItemProps) => {
       {icon}
       <div>
         {isLink && text ? (
-          <a
-            href={currentHref}
-            target="_blank"
-            rel="noreferrer"
-            // className={styles.link}
-            style={{ marginLeft: "10px" }}
-          >
+          <a href={currentHref} target="_blank" rel="noreferrer">
             {currentText}
           </a>
+        ) : isTwitter ? (
+          <a href={currentHref}>{currentText}</a>
         ) : (
           currentText
         )}
