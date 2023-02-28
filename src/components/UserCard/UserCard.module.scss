@@ -18,10 +18,19 @@
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 30px;
+    transition: all 0.3s;
 
     .avatar {
       width: 150px;
       border-radius: 100px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .avatar {
+      width: 200px;
+      border-radius: 100px;
+      transition: all 0.3s;
     }
   }
 }

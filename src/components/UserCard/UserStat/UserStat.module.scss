@@ -19,12 +19,14 @@
 
   @media (min-width: 1024px) {
     grid-column: 2 / span 1;
+    transition: all 0.3s;
   }
 
   @media (max-width: 468px) {
     grid-template-columns: repeat(1, auto);
     gap: 15px;
     text-align: center;
+    transition: all 0.3s;
   }
 }
 
